@@ -101,6 +101,13 @@ $(document).ready(function(){
 				<td><input type="text" name="email" th:value = "${obj.email}"></td>
 			</tr>
 			<tr>
+				<td><label for="sex">성별</label></td>
+				<td>
+					<input type="radio" name="sex" value="남성">남성
+					<input type="radio" name="sex" value="여성">여성
+				</td>
+			</tr>
+			<tr>
 				<td><label for="memo">메모</label></td>
 				<td><input type="text" name="memo" th:value = "${obj.memo}" class="memo"><h4><font>0</font> / 200</h4></td>
 			</tr>
