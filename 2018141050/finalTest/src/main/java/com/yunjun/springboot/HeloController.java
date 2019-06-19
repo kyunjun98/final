@@ -39,5 +39,4 @@ public class HeloController {
 		mav.addObject("datalist", list);
 		return mav;
 	}
-	
 }
