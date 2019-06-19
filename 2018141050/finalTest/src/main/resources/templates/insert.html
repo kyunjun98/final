@@ -60,7 +60,8 @@ $(document).ready(function(){
 		if(inputLength > 200) {
 			alert("최대 글자수를 초과하였습니다");
 			$('font').css('color','red');
-		}
+		} else
+		$('font').css('color','black');
 		//문서객체에 입력합니다.
 		$('font').html(inputLength);
 	})
