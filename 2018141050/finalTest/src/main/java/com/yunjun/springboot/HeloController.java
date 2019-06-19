@@ -175,4 +175,13 @@ public class HeloController {
 		
 		return new ModelAndView("redirect:/");
 	}
+
+	@RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
+	public ModelAndView removecheck(@PathVariable("id") String id, ModelAndView mav) {
+		mav.setViewName("delete");
+
+		List<MyDataMongo> list = repository.findById(id);
+		mav.addObject("datalist", list);
+		return mav;
+	}
 }
