@@ -6,9 +6,8 @@ import org.springframework.data.annotation.Id;
 
 public class MyDataMongo {
 	@Id
-	private String id; 			//고유번호
+	private String id; 			//회원번호
 	
-	private String idNum; 		//회원번호 
 	private String name;		//이름
 	private String pos;			//주소
 	private String email;		//이메일
@@ -19,9 +18,8 @@ public class MyDataMongo {
 	private int phone3;			//전화번호 끝자리
 	
 	
-	public MyDataMongo(String idNum, String name, String pos, String email, String sex, String memo, 
+	public MyDataMongo(String name, String pos, String email, String sex, String memo, 
 					   int phone1, int phone2, int phone3) {
-		this.idNum = idNum;
 		this.name = name;
 		this.pos = pos;
 		this.email = email;
@@ -39,14 +37,6 @@ public class MyDataMongo {
 
 	public void setId(String id) {
 		this.id = id;
-	}
-
-	public String getIdNum() {
-		return idNum;
-	}
-
-	public void setIdNum(String idNum) {
-		this.idNum = idNum;
 	}
 
 	public String getName() {
