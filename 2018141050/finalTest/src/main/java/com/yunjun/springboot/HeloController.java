@@ -20,14 +20,18 @@ public class HeloController {
 	
 	/**
 	 * 	@fn		public ModelAndView index(ModelAndView mav)
+	 * 
 	 *	@brief	초기 페이지 설정
+	 *
 	 *	@details
 	 *
 	 *	@author	권연준
 	 *	@date	2019-06-20
 	 
-	 *	@param
+	 *	@param 	mav ModelAndView
+	 *
 	 *	@remark	웹 페이지를 불러오기 위한 초기페이지 설정 [2019-06-20; 권연준]
+	 *
 	 */
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
@@ -39,6 +43,21 @@ public class HeloController {
 		mav.addObject("datalist", list);
 		return mav;
 	}
+
+	/**
+	 *
+	 * @fn 		public ModelAndView insert(ModelAndView mav)
+	 * 
+	 * @brief 	입력 페이지 설정 
+	 *
+	 * @author 	권연준
+	 * @date 	2019-06-20
+	 *
+	 * @param	mav ModelAndView
+	 *
+	 * @remark 	웹 페이지를 불러오기 위한 초기페이지 설정[2019-06-20; 권연준] \n
+	 *
+	 */
 	
 	@RequestMapping(value = "/insert", method = RequestMethod.GET)
 	public ModelAndView insert(ModelAndView mav) {
@@ -46,6 +65,22 @@ public class HeloController {
 
 		return mav;
 	}
+	
+	/**
+	 *
+	 * @fn 		public ModelAndView insert(ModelAndView mav)
+	 * 
+	 * @brief 	입력 페이지 설정 
+	 *
+	 * @author 	권연준
+	 * @date 	2019-06-20
+	 *
+	 * @param 	mav ModelAndView
+	 *
+	 * @remark	폼에 입력된 값을 받아온 후 객체에 저장		[2019-06-20; 권연준] \n
+	 *		   	save 메소드를 이용해 DB에 저장			[2019-06-20; 권연준] \n
+	 *
+	 */
 	
 	@RequestMapping(value = "/insert", method = RequestMethod.POST)
 	public ModelAndView form(
@@ -63,4 +98,5 @@ public class HeloController {
 		
 		return new ModelAndView("redirect:/");
 	}
+	
 }
