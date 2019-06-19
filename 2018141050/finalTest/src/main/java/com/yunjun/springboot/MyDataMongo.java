@@ -6,16 +6,17 @@ import org.springframework.data.annotation.Id;
 
 public class MyDataMongo {
 	@Id
-	private String id; 			//회원번호
+	private String id; 				//회원번호
 	
-	private String name;		//이름
-	private String pos;			//주소
-	private String email;		//이메일
-	private String sex;			//성별
-	private String memo;		//메모
+	private String name;			//이름
+	private String pos;				//주소
+	private String email;			//이메일
+	private String sex;				//성별
+	private String memo;			//메모
 	private String phone1;			//전화번호 앞자리
 	private String phone2;			//전화번호 중간자리
 	private String phone3;			//전화번호 끝자리
+	private Date registerDate;		//가입날짜
 	
 	
 	public MyDataMongo(String name, String pos, String email, String sex, String memo, 
@@ -28,6 +29,7 @@ public class MyDataMongo {
 		this.phone1 = phone1;
 		this.phone2 = phone2;
 		this.phone3 = phone3;
+		this.registerDate = new Date();
 	}
 
 
@@ -101,6 +103,16 @@ public class MyDataMongo {
 
 	public void setPhone3(String phone3) {
 		this.phone3 = phone3;
+	}
+
+
+	public Date getRegisterDate() {
+		return registerDate;
+	}
+
+
+	public void setRegisterDate(Date registerDate) {
+		this.registerDate = registerDate;
 	}
 }
 
