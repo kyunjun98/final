@@ -176,6 +176,20 @@ public class HeloController {
 		return new ModelAndView("redirect:/");
 	}
 
+	/**
+	 *
+	 * @fn 		public ModelAndView removecheck(ModelAndView mav)
+	 * 
+	 * @brief 	삭제 유무 확인페이지
+	 *
+	 * @author 	권연준
+	 * @date 	2019-06-20
+	 *
+	 * @param 	mav ModelAndView
+	 *
+	 * @remark	findBy 를 이용한 조건검색 후 삭제 유무 확인페이지 출력	[2019-06-20; 권연준] \n
+	 *
+	 */
 	@RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
 	public ModelAndView removecheck(@PathVariable("id") String id, ModelAndView mav) {
 		mav.setViewName("delete");
@@ -184,7 +198,21 @@ public class HeloController {
 		mav.addObject("datalist", list);
 		return mav;
 	}
-	
+
+	/**
+	 *
+	 * @fn 		public ModelAndView remove(ModelAndView mav)
+	 * 
+	 * @brief 	데이터 삭제
+	 *
+	 * @author 	권연준
+	 * @date 	2019-06-20
+	 *
+	 * @param 	mav ModelAndView
+	 *
+	 * @remark	deleteBy 를 이용한 데이터 조건삭제	[2019-06-20; 권연준] \n
+	 *
+	 */
 	@RequestMapping(value = "/delete", method = RequestMethod.POST)
 	public ModelAndView remove(@RequestParam("id") String id, ModelAndView mav) {
 		repository.deleteById(id);
