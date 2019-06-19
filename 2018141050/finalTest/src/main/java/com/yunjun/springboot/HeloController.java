@@ -33,10 +33,8 @@ public class HeloController {
 	 *	@remark	웹 페이지를 불러오기 위한 초기페이지 설정 [2019-06-20; 권연준]
 	 *
 	 */
-	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView index(ModelAndView mav) {
-
 		mav.setViewName("index");
 
 		Iterable<MyDataMongo> list = repository.findAll();
@@ -58,7 +56,6 @@ public class HeloController {
 	 * @remark 	웹 페이지를 불러오기 위한 초기페이지 설정[2019-06-20; 권연준] \n
 	 *
 	 */
-	
 	@RequestMapping(value = "/insert", method = RequestMethod.GET)
 	public ModelAndView insert(ModelAndView mav) {
 		mav.setViewName("insert");
@@ -81,7 +78,6 @@ public class HeloController {
 	 *		   	save 메소드를 이용해 DB에 저장			[2019-06-20; 권연준] \n
 	 *
 	 */
-	
 	@RequestMapping(value = "/insert", method = RequestMethod.POST)
 	public ModelAndView form(
 			@RequestParam("name") String name, 
@@ -113,7 +109,6 @@ public class HeloController {
 	 * @remark	findBy 를 이용한 조건검색 후 출력	[2019-06-20; 권연준] \n
 	 *
 	 */
-	
 	@RequestMapping(value = "/detail/{id}", method = RequestMethod.GET)
 	public ModelAndView detail(@PathVariable("id") String id, ModelAndView mav) {
 		mav.setViewName("detail");
