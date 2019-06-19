@@ -18,6 +18,18 @@ public class HeloController {
 	@Autowired
 	MyDataMongoRepository repository;
 	
+	/**
+	 * 	@fn		public ModelAndView index(ModelAndView mav)
+	 *	@brief	초기 페이지 설정
+	 *	@details
+	 *
+	 *	@author	권연준
+	 *	@date	2019-06-20
+	 
+	 *	@param
+	 *	@remark	웹 페이지를 불러오기 위한 초기페이지 설정 [2019-06-20; 권연준]
+	 */
+	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView index(ModelAndView mav) {
 
