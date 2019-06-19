@@ -118,6 +118,20 @@ public class HeloController {
 		return mav;
 	}
 	
+	/**
+	 *
+	 * @fn 		public ModelAndView edit(ModelAndView mav)
+	 * 
+	 * @brief 	수정페이지
+	 *
+	 * @author 	권연준
+	 * @date 	2019-06-20
+	 *
+	 * @param 	mav ModelAndView
+	 *
+	 * @remark	findBy를 이용해 조건에 충족되는 데이터를 List에 저장 후 화면에 표시	[2019-06-20; 권연준] \n
+	 *
+	 */
 	@RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
 	public ModelAndView edit(@PathVariable("id") String id, ModelAndView mav) {
 		mav.setViewName("edit");
@@ -127,6 +141,22 @@ public class HeloController {
 		return mav;
 	}
 	
+	/**
+	 *
+	 * @fn 		public ModelAndView editpost(ModelAndView mav)
+	 * 
+	 * @brief 	데이터 수정
+	 *
+	 * @author 	권연준
+	 * @date 	2019-06-20
+	 *
+	 * @param 	mav ModelAndView
+	 *
+	 * @remark	폼에 입력된 값을 받아온 후 객체에 저장	[2019-06-20; 권연준] \n
+	 *		   	save 메소드를 이용해 DB에 저장		[2019-06-20; 권연준] \n
+	 *			deleteBy를 이용해 이전데이터 삭제	[2019-06-20; 권연준] \n
+	 *
+	 */
 	@RequestMapping(value = "/edit", method = RequestMethod.POST)
 	public ModelAndView editpost(
 			@RequestParam("id") String id, 
