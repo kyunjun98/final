@@ -13,13 +13,13 @@ public class MyDataMongo {
 	private String email;		//이메일
 	private String sex;			//성별
 	private String memo;		//메모
-	private int phone1;			//전화번호 앞자리
-	private int phone2;			//전화번호 중간자리
-	private int phone3;			//전화번호 끝자리
+	private String phone1;			//전화번호 앞자리
+	private String phone2;			//전화번호 중간자리
+	private String phone3;			//전화번호 끝자리
 	
 	
 	public MyDataMongo(String name, String pos, String email, String sex, String memo, 
-					   int phone1, int phone2, int phone3) {
+					   String phone1, String phone2, String phone3) {
 		this.name = name;
 		this.pos = pos;
 		this.email = email;
@@ -79,27 +79,27 @@ public class MyDataMongo {
 		this.memo = memo;
 	}
 
-	public int getPhone1() {
+	public String getPhone1() {
 		return phone1;
 	}
 
-	public void setPhone1(int phone1) {
+	public void setPhone1(String phone1) {
 		this.phone1 = phone1;
 	}
 
-	public int getPhone2() {
+	public String getPhone2() {
 		return phone2;
 	}
 
-	public void setPhone2(int phone2) {
+	public void setPhone2(String phone2) {
 		this.phone2 = phone2;
 	}
 
-	public int getPhone3() {
+	public String getPhone3() {
 		return phone3;
 	}
 
-	public void setPhone3(int phone3) {
+	public void setPhone3(String phone3) {
 		this.phone3 = phone3;
 	}
 }

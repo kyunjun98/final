@@ -39,4 +39,28 @@ public class HeloController {
 		mav.addObject("datalist", list);
 		return mav;
 	}
+	
+	@RequestMapping(value = "/insert", method = RequestMethod.GET)
+	public ModelAndView insert(ModelAndView mav) {
+		mav.setViewName("insert");
+
+		return mav;
+	}
+	
+	@RequestMapping(value = "/insert", method = RequestMethod.POST)
+	public ModelAndView form(
+			@RequestParam("name") String name, 
+			@RequestParam("phone1") String phone1,
+			@RequestParam("phone2") String phone2,
+			@RequestParam("phone3") String phone3,
+			@RequestParam("pos") String pos,
+			@RequestParam("email") String email,
+			@RequestParam("sex") String sex,
+			@RequestParam("memo") String memo,      
+			ModelAndView mov) {
+		MyDataMongo mydata = new MyDataMongo(name, pos, email, sex, memo, phone1, phone2, phone3);
+		repository.save(mydata);
+		
+		return new ModelAndView("redirect:/");
+	}
 }

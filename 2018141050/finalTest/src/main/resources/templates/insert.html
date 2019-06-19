@@ -69,19 +69,19 @@ $(document).ready(function(){
 </head>
 <body>
 	<table>
-		<form method="post" action="/insert">
+		<form method="post" action="/insert" id="form1">
 		<input type="hidden" name="id" th:value="*{id}" />
 			<tr>
 				<td><label for="name">이름</label></td>
-				<td><input type="text" name="name" /></td>
+				<td><input type="text" name="name" class="name"/></td>
 			</tr>
 			<tr>
 				<td><label for="phone1">전화번호</label></td>
 				<td>
 					<select name="phone1">
-						<option value="010" selected="selected">010</option>
-						<option value="011">011</option>
-						<option value="02">02</option>
+						<option value="(010)" selected="selected">010</option>
+						<option value="(011)">011</option>
+						<option value="(02)">02</option>
 					</select> - 
 					<input type="text" name="phone2" /> - 
 					<input type="text" name="phone3" />
