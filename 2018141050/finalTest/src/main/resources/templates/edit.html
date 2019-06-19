@@ -70,8 +70,7 @@ $(document).ready(function(){
 </script>
 </head>
 <body>
-	<h1 th:text="#{content.title}">Helo page</h1>
-	<p th:text="${msg}"></p>
+	<h1>회원정보 수정</h1>
 	
 	<table th:each="obj : ${datalist}">
 		<form method="post" action="/edit">
@@ -114,7 +113,7 @@ $(document).ready(function(){
 			<tr>
 				<td></td>
 				<td>
-					<input type="submit" value = "수정"/>
+					<input type="submit" value = "완료"/>
 					</form>
 					<a th:href="@{'/'}"><button>취소</button></a>
 				</td>
