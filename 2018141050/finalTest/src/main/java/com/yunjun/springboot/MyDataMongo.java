@@ -6,17 +6,17 @@ import org.springframework.data.annotation.Id;
 
 public class MyDataMongo {
 	@Id
-	private String id;
+	private String id; 			//고유번호
 	
-	private String idNum;
-	private String name;
-	private String pos;
-	private String email;
-	private String sex;
-	private String memo;
-	private int phone1;
-	private int phone2;
-	private int phone3;
+	private String idNum; 		//회원번호 
+	private String name;		//이름
+	private String pos;			//주소
+	private String email;		//이메일
+	private String sex;			//성별
+	private String memo;		//메모
+	private int phone1;			//전화번호 앞자리
+	private int phone2;			//전화번호 중간자리
+	private int phone3;			//전화번호 끝자리
 	
 	
 	public MyDataMongo(String idNum, String name, String pos, String email, String sex, String memo, 
