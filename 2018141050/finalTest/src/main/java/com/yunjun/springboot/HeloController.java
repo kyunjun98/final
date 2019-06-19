@@ -120,28 +120,26 @@ public class HeloController {
 	
 	@RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
 	public ModelAndView edit(@PathVariable("id") String id, ModelAndView mav) {
-		
 		mav.setViewName("edit");
-		mav.addObject("title", "Edit Page");
-		mav.addObject("msg", "수정할 데이터를 입력해주세요.");
 		
 		List<MyDataMongo> list = repository.findById(id);
-		
 		mav.addObject("datalist", list);
 		return mav;
 	}
 	
-
 	@RequestMapping(value = "/edit", method = RequestMethod.POST)
 	public ModelAndView editpost(
 			@RequestParam("id") String id, 
-			@RequestParam("code") String code,
 			@RequestParam("name") String name, 
-			@RequestParam("Java") int Java,
-			@RequestParam("SpringBoot") int SpringBoot, 
-			@RequestParam("DataBase") int DataBase, ModelAndView mov) 
-	{
-		MyDataMongo mydata = new MyDataMongo(name, code, Java, SpringBoot, DataBase);
+			@RequestParam("phone1") String phone1,
+			@RequestParam("phone2") String phone2,
+			@RequestParam("phone3") String phone3,
+			@RequestParam("pos") String pos,
+			@RequestParam("email") String email,
+			@RequestParam("sex") String sex,
+			@RequestParam("memo") String memo,      
+			ModelAndView mov) {
+		MyDataMongo mydata = new MyDataMongo(name, pos, email, sex, memo, phone1, phone2, phone3);
 		repository.save(mydata);
 		repository.deleteById(id);
 		
