@@ -52,6 +52,7 @@ table.navi tr td {
 
 </head>
 <body>
+	<h1> 회원님의 상세정보</h1>
 	<table th:each="obj : ${datalist}">
 		<form method="post" action="/detail/{id}">
 			<input type="hidden" th:value="${obj.id}" />
@@ -82,6 +83,10 @@ table.navi tr td {
 		<tr>
 			<td>메모</td>
 			<td th:text="${obj.memo}"></td>
+		</tr>
+		<tr>
+			<td>가입날짜</td>
+			<td th:text="${obj.registerDate}"></td>
 		</tr>
 		</form>
 		<tr>
