@@ -10,9 +10,21 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.yunjun.springboot.MyDataMongo;
 import com.yunjun.springboot.repositories.MyDataMongoRepository;
 
 @Controller
 public class HeloController {
+	@Autowired
+	MyDataMongoRepository repository;
+	
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public ModelAndView index(ModelAndView mav) {
 
+		mav.setViewName("index");
+
+		Iterable<MyDataMongo> list = repository.findAll();
+		mav.addObject("datalist", list);
+		return mav;
+	}
 }
