@@ -130,4 +130,21 @@ public class HeloController {
 		mav.addObject("datalist", list);
 		return mav;
 	}
+	
+
+	@RequestMapping(value = "/edit", method = RequestMethod.POST)
+	public ModelAndView editpost(
+			@RequestParam("id") String id, 
+			@RequestParam("code") String code,
+			@RequestParam("name") String name, 
+			@RequestParam("Java") int Java,
+			@RequestParam("SpringBoot") int SpringBoot, 
+			@RequestParam("DataBase") int DataBase, ModelAndView mov) 
+	{
+		MyDataMongo mydata = new MyDataMongo(name, code, Java, SpringBoot, DataBase);
+		repository.save(mydata);
+		repository.deleteById(id);
+		
+		return new ModelAndView("redirect:/");
+	}
 }
