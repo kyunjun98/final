@@ -44,23 +44,41 @@ table.navi tr {
 table.navi tr td {
 	background: white;
 }
-
+.memo {
+	width: 300px;
+	height: 100px;
+}
 .err {
 	color: red;
 }
 </style>
+<script src="http://code.jquery.com/jquery-3.4.0.js"></script>
+<script>
+$(document).ready(function(){
+	//keyup(): 키를 입력해을 때, 발생하는 이벤트 처리..
+	$('.memo').keyup(function() {
+		
+		//남은 글자 수를 구합니다.
+		var inputLength = $(this).val().length;
+		if(inputLength > 200) {
+			alert("최대 글자수를 초과하였습니다")
+		}
+		//문서객체에 입력합니다.
+		$('font').html(inputLength);
+	})
+});
+</script>
 </head>
 <body>
+	<h1 th:text="#{content.title}">Helo page</h1>
+	<p th:text="${msg}"></p>
+	
 	<table th:each="obj : ${datalist}">
 		<form method="post" action="/edit">
 		<input type="hidden" name="id" th:value="*{id}" />
-
-	<table>
-		<form method="post" action="/insert" id="form1">
-			<input type="hidden" name="id" th:value="*{id}" />
 			<tr>
 				<td><label for="name">이름</label></td>
-				<td><input type="text" name="name" class="name"/></td>
+				<td><input type="text" name="name" th:value = "${obj.name}"></td>
 			</tr>
 			<tr>
 				<td><label for="phone1">전화번호</label></td>
@@ -70,28 +88,21 @@ table.navi tr td {
 						<option value="(011)">011</option>
 						<option value="(02)">02</option>
 					</select> - 
-					<input type="text" name="phone2" /> - 
-					<input type="text" name="phone3" />
+					<input type="text" name="phone2" th:value = "${obj.phone2}" /> - 
+					<input type="text" name="phone3" th:value = "${obj.phone3}" />
 				</td>
 			</tr>
 			<tr>
 				<td><label for="pos">주소</label></td>
-				<td><input type="text" name="pos" /></td>
+				<td><input type="text" name="pos" th:value = "${obj.pos}"></td>
 			</tr>
 			<tr>
 				<td><label for="email">이메일</label></td>
-				<td><input type="text" name="email" /></td>
-			</tr>
-			<tr>
-				<td><label for="sex">성별</label></td>
-				<td>
-					<input type="radio" name="sex" value="남성" checked="checked">남성
-					<input type="radio" name="sex" value="여성">여성
-				</td>
+				<td><input type="text" name="email" th:value = "${obj.email}"></td>
 			</tr>
 			<tr>
 				<td><label for="memo">메모</label></td>
-				<td><textarea rows="5" cols="60" name="memo"></textarea><h4><font>0</font> / 200</h4></td>
+				<td><input type="text" name="memo" th:value = "${obj.memo}" class="memo"><h4><font>0</font> / 200</h4></td>
 			</tr>
 			<tr>
 				<td></td>
@@ -101,6 +112,8 @@ table.navi tr td {
 					<a th:href="@{'/'}"><button>취소</button></a>
 				</td>
 			</tr>
+
+		
 	</table>
 </body>
 </html>
