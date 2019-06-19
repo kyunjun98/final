@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>top page</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>회원 조회</h1>
+	<a th:href="@{'/insert'}">회원등록</a>
+	<p>
+	<table>
+		<form method="post" action="/">
+			<input type="hidden" name="id" th:value="*{id}" />
+		<tr>
+			<th>회원번호</th>
+			<th>이름</th>
+			<th>전화번호</th>
+			<th>주소</th>
+			<th>이메일</th>
+			<th>성별</th>
+		</tr>
+		<tr th:each="obj : ${datalist}">
+			<td><a th:href="@{'/detail/' + ${obj.id}}"><span th:text="${obj.idNum"></span></a></td>
+			<td><span th:text="${obj.name}"></span></td>
+			<td>
+				<span th:text="${obj.phone1}">-</span>
+				<span th:text="${obj.phone2}">-</span>
+				<span th:text="${obj.phone3}"></span>
+			</td>
+			<td><span th:text="${obj.pos}"></span></td>
+			<td><span th:text="${obj.email}"></span></td>
+			<td><span th:text="${obj.sex}"></span></td>
+		</tr>
+		</form>
+	</table>
+</body>
+</html>
