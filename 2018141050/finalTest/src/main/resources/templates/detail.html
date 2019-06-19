@@ -52,8 +52,6 @@ table.navi tr td {
 
 </head>
 <body>
-	<h1><font th:text="${obj.name}"></font> 님의 회원정보입니다.</h1>
-
 	<table th:each="obj : ${datalist}">
 		<form method="post" action="/detail/{id}">
 			<input type="hidden" th:value="${obj.id}" />
